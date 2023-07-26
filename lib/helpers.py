@@ -24,9 +24,9 @@ def find_department_by_name():
 
 
 def find_department_by_id():
-    id = input("Enter the department's id: ")
-    department = Department.find_by_id(id)
-    print(department) if department else print(f'Department {id} not found')
+    id_ = input("Enter the department's id: ")
+    department = Department.find_by_id(id_)
+    print(department) if department else print(f'Department {id_} not found')
 
 
 def create_department():
@@ -40,9 +40,8 @@ def create_department():
 
 
 def update_department():
-    id = input("Enter the department's id: ")
-    department = Department.find_by_id(id)
-    if department:
+    id_ = input("Enter the department's id: ")
+    if department := Department.find_by_id(id_):
         try:
             name = input("Enter the department's new name: ")
             department.name = name
@@ -54,17 +53,16 @@ def update_department():
         except Exception as exc:
             print("Error updating department: ", exc)
     else:
-        print(f'Department {id} not found')
+        print(f'Department {id_} not found')
 
 
 def delete_department():
-    id = input("Enter the department's id: ")
-    department = Department.find_by_id(id)
-    if department:
+    id_ = input("Enter the department's id: ")
+    if department := Department.find_by_id(id_)
         department.delete()
-        print(f'Department {id} deleted')
+        print(f'Department {id_} deleted')
     else:
-        print(f'Department {id} not found')
+        print(f'Department {id_} not found')
 
 
 # You'll implement the employee functions in the lab
@@ -83,9 +81,9 @@ def find_employee_by_name():
 
 
 def find_employee_by_id():
-    id = input("Enter the employee's id: ")
-    employee = Employee.find_by_id(id)
-    print(employee) if employee else print(f'Employee {id} not found')
+    id_ = input("Enter the employee's id: ")
+    employee = Employee.find_by_id(id_)
+    print(employee) if employee else print(f'Employee {id_} not found')
 
 
 def create_employee():
@@ -100,9 +98,8 @@ def create_employee():
 
 
 def update_employee():
-    id = input("Enter the employee's id: ")
-    employee = Employee.find_by_id(id)
-    if employee:
+    id_ = input("Enter the employee's id: ")
+    if employee := Employee.find_by_id(id_):
         try:
             name = input("Enter the employees's new name: ")
             employee.name = name
@@ -115,24 +112,22 @@ def update_employee():
         except Exception as exc:
             print("Error updating employee: ", exc)
     else:
-        print(f'Employee {id} not found')
+        print(f'Employee {id_} not found')
 
 
 def delete_employee():
-    id = input("Enter the employee's id: ")
-    employee = Employee.find_by_id(id)
-    if employee:
+    id_ = input("Enter the employee's id: ")
+    if employee := Employee.find_by_id(id_):
         employee.delete()
-        print(f'Employee {id} deleted')
+        print(f'Employee {id_} deleted')
     else:
-        print(f'Employee {id} not found')
+        print(f'Employee {id_} not found')
 
 
 def list_department_employees():
-    id = input("Enter the department's id: ")
-    department = Department.find_by_id(id)
-    if department:
+    id_ = input("Enter the department's id: ")
+    if department := Department.find_by_id(id_):
         for employee in department.employees():
             print(employee)
     else:
-        print(f'Department {id} not found')
+        print(f'Department {id_} not found')
